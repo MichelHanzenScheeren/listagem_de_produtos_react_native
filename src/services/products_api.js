@@ -5,9 +5,9 @@
   });
 
   export default class ProductsApi {
-    static async loadProducts() {
+    static async loadProducts(currentPage = 1) {
       try {
-        const response = await api.get("/products");
+        const response = await api.get(`/products?page=${currentPage}`);
         return response.data;
       } catch (error) {
         console.log(error.message);
